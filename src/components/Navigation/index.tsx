@@ -1,9 +1,23 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
+import { getAuth, signOut } from 'firebase/auth';
 
 export const Navigation = ({ pageName }: { pageName: string }) => {
   const [signedIn, setSignedIn] = useState(true);
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  const clickHandler = () => {
+    setSignedIn(!signedIn);
+    signOut(auth)
+      .then(() => {
+        navigate('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <nav className="bg-teal-300 p-4">
@@ -19,7 +33,7 @@ export const Navigation = ({ pageName }: { pageName: string }) => {
         <div className="flex items-center">
           <button
             className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded"
-            onClick={() => setSignedIn(!signedIn)}
+            onClick={() => clickHandler()}
           >
             {signedIn ? 'Sign out' : 'Sign in'}
           </button>
