@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 
 export const Navigation = ({ pageName }: { pageName: string }) => {
@@ -10,9 +11,9 @@ export const Navigation = ({ pageName }: { pageName: string }) => {
     <nav className="bg-teal-300 p-4">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center">
-          <a href="#" className="text-white text-2xl font-bold">
+          <Link to="/dashboard" className="text-white text-2xl font-bold">
             Tada!
-          </a>
+          </Link>
         </div>
         <div className="ml-6 space-x-4 text-center text-white text-2xl font-bold">
           {pageName}

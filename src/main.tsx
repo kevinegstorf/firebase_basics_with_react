@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Navigation } from './components';
 import './index.css';
-import { App, CreateTodo, Dashboard } from './pages';
+import { App, CreateTodo, Dashboard, Todo } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: '/create-todo',
     element: <CreateTodo />,
+  },
+  {
+    path: '/dashboard/:id',
+    element: <Todo />,
+  },
+  {
+    path: '/dashboard/new',
+    element: <Todo />,
   },
 ]);
 

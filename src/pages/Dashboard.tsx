@@ -1,8 +1,15 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navigation } from '../components';
 
 export const Dashboard = () => {
-  const [todos, setTodos] = useState<string[]>(['todo1', 'todo2']);
+  const [todos, setTodos] = useState<string[]>([
+    'todo1',
+    'todo2',
+    'todo3',
+    'todo4',
+    'todo5',
+  ]);
   return (
     <>
       <Navigation pageName="Dashboard" />
@@ -17,19 +24,21 @@ export const Dashboard = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-3 gap-4">
           {todos.map((todo) => (
-            <div className="bg-white p-6 shadow-md">
-              <h2 className="text-lg font-bold mb-4">{todo}</h2>
-              <p className="text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                vulputate diam nec eros laoreet bibendum.
-              </p>
-            </div>
+            <Link to={todo}>
+              <div className="bg-white p-6 shadow-md">
+                <h2 className="text-lg font-bold mb-4">{todo}</h2>
+                <p className="text-gray-700">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  vulputate diam nec eros laoreet bibendum.
+                </p>
+              </div>
+            </Link>
           ))}
-          <a href="">
+          <Link to="/dashboard/new">
             <div className="p-6 shadow-md hover:bg-teal-300">
               <h2 className="text-lg font-bold mb-4">Taak toevoegen +</h2>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>
