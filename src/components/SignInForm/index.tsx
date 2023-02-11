@@ -2,6 +2,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -109,9 +110,12 @@ export const SignInForm = () => {
           >
             {signUp ? 'Sign In' : 'Sign Up'}
           </button>
-          <a className="hover:underline" href="">
+          <button
+            className="hover:underline"
+            onClick={() => sendPasswordResetEmail(auth, email)}
+          >
             Forgot Password
-          </a>
+          </button>
         </div>
       </div>
     </form>
