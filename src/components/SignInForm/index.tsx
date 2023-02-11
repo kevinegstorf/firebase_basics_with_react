@@ -44,7 +44,7 @@ export const SignInForm = () => {
       onSubmit={(E) => handleSubmit(E)}
       className="bg-white p-6 rounded-lg shadow-xl"
     >
-      <h1>{signUp ? 'Sign up' : 'Sign in'}</h1>
+      <h1 className="text-center">{signUp ? 'Sign Up' : 'Sign In'}</h1>
       {signUp && (
         <>
           <label
@@ -107,7 +107,7 @@ export const SignInForm = () => {
             className="mr-4 hover:underline"
             onClick={(e) => toggleSignUp(e)}
           >
-            {signUp ? 'Sign in' : 'Sign up'}
+            {signUp ? 'Sign In' : 'Sign Up'}
           </button>
           <a className="hover:underline" href="">
             Forgot Password
