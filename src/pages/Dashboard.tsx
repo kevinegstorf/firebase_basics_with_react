@@ -4,11 +4,11 @@ import { Navigation } from '../components';
 
 export const Dashboard = () => {
   const [todos, setTodos] = useState<string[]>([
-    'todo1',
-    'todo2',
-    'todo3',
-    'todo4',
-    'todo5',
+    'todo 1',
+    'todo 2',
+    'todo 3',
+    'todo 4',
+    'todo 5',
   ]);
   return (
     <>
@@ -18,14 +18,17 @@ export const Dashboard = () => {
           <div className="bg-white p-6 shadow-md mb-5 mt-5 rounded">
             <h2>Welcome user</h2>
             <h3>Datum</h3>
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+            <h3>Todos done 5 🔥🔥🔥🔥🔥</h3>
+            <h4>Prio Todo: nr 5</h4>
           </div>
         </div>
       </div>
       <div className="container mx-auto">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-4 mb-5">
           {todos.map((todo) => (
             <Link to={todo}>
-              <div className="bg-white p-6 shadow-md">
+              <div className="bg-yellow-200 p-6 shadow-md">
                 <h2 className="text-lg font-bold mb-4">{todo}</h2>
                 <p className="text-gray-700">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -36,7 +39,9 @@ export const Dashboard = () => {
           ))}
           <Link to="/dashboard/new">
             <div className="p-6 shadow-md hover:bg-teal-300">
-              <h2 className="text-lg font-bold mb-4">Taak toevoegen +</h2>
+              <h2 className="text-lg font-bold mb-4">
+                Taak toevoegen <span className="text-teal-600">+</span>
+              </h2>
             </div>
           </Link>
         </div>

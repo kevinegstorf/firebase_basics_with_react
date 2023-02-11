@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.svg';
 
 export const Navigation = ({ pageName }: { pageName: string }) => {
-  const [signedIn, setSignedIn] = useState(false);
-
-  console.log('pageName', pageName);
+  const [signedIn, setSignedIn] = useState(true);
 
   return (
     <nav className="bg-teal-300 p-4">
