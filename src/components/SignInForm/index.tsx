@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
+  updateProfile,
 } from 'firebase/auth';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +22,13 @@ export const SignInForm = () => {
     if (signUp) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
+        const user = await auth.currentUser;
+        if (user) {
+          updateProfile(user, {
+            displayName,
+          });
+        }
+
         navigate('/dashboard');
       } catch (error) {
         console.log(error);
@@ -98,20 +106,20 @@ export const SignInForm = () => {
       </div>
       <button
         type="submit"
-        className="bg-teal-500 hover:bg-teal-600 text-white font-medium w-full p-3 rounded-lg"
+        className="bg-teal-500 transition duration-500 hover:bg-teal-600 text-white font-medium w-full p-3 rounded-lg"
       >
         {signUp ? 'Register' : 'Login'}
       </button>
       <div className="flex">
         <div className="flex-start ">
           <button
-            className="mr-4 hover:underline"
+            className="mr-4 transition duration-500 hover:underline"
             onClick={(e) => toggleSignUp(e)}
           >
             {signUp ? 'Sign In' : 'Sign Up'}
           </button>
           <button
-            className="hover:underline"
+            className="transition duration-500 hover:underline"
             onClick={() => sendPasswordResetEmail(auth, email)}
           >
             Forgot Password

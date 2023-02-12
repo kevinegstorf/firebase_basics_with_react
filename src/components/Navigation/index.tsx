@@ -32,7 +32,7 @@ export const Navigation = ({ pageName }: { pageName: string }) => {
         </div>
         <div className="flex items-center">
           <button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded"
+            className="bg-teal-500 transition duration-100 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded"
             onClick={() => clickHandler()}
           >
             {signedIn ? 'Sign out' : 'Sign in'}
