@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Navigation } from './components';
 import './index.css';
-import { App, CreateTodo, Dashboard, Todo } from './pages';
+import { App, Dashboard, Todo } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -13,10 +12,6 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <Dashboard />,
-  },
-  {
-    path: '/create-todo',
-    element: <CreateTodo />,
   },
   {
     path: '/dashboard/:id',

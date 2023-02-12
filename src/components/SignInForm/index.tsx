@@ -69,6 +69,7 @@ export const SignInForm = () => {
             onChange={(event) => setDisplayName(event.target.value)}
             className="w-full p-3 border border-gray-400 rounded-lg"
             id="username"
+            required
           />
         </>
       )}
@@ -86,6 +87,7 @@ export const SignInForm = () => {
           onChange={(event) => setEmail(event.target.value)}
           className="w-full p-3 border border-gray-400 rounded-lg"
           id="email"
+          required
         />
       </div>
       <div className="mb-6">
@@ -102,6 +104,7 @@ export const SignInForm = () => {
           onChange={(event) => setPassword(event.target.value)}
           className="w-full p-3 border border-gray-400 rounded-lg"
           id="password"
+          required
         />
       </div>
       <button
