@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, redirect } from 'react-router-dom';
-import { Navigation } from '../components';
+import { Navigation } from '../../components';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const Dashboard = () => {
   const now = Date.now();
   const [todos, setTodos] = useState<string[]>([
-    'todo 1',
-    'todo 2',
-    'todo 3',
-    'todo 4',
-    'todo 5',
+    'Boodschappen',
+    'stappen nieuwe website',
+    'vakantie lijstje',
+    'klusjes',
   ]);
   const auth = getAuth();
   const user = auth.currentUser;

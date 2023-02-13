@@ -1,3 +1,3 @@
-export { App } from "./App";
-export { Dashboard } from "./Dashboard";
-export { Todo } from "./ATodo";
+export { App } from "./components/App";
+export { Dashboard } from "./components/Dashboard";
+export { Todo } from "./components/Todo";

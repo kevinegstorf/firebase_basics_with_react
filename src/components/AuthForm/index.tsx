@@ -9,11 +9,12 @@ import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FireBaseApp from '../../firebase';
 
-export const SignInForm = () => {
+export const AuthForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [signUp, setSignUp] = useState(false);
+  const [error, setError] = useState<string | undefined>();
   const auth = getAuth(FireBaseApp);
   const navigate = useNavigate();
 
@@ -38,8 +39,8 @@ export const SignInForm = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      setError(error.code);
     }
   };
 
@@ -67,7 +68,7 @@ export const SignInForm = () => {
             name="username"
             value={displayName}
             onChange={(event) => setDisplayName(event.target.value)}
-            className="w-full p-3 border border-gray-400 rounded-lg"
+            className="w-full p-3 border border-gray-400 rounded-lg outline-teal-500"
             id="username"
             required
           />
@@ -85,7 +86,7 @@ export const SignInForm = () => {
           name="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full p-3 border border-gray-400 rounded-lg"
+          className="w-full p-3 border border-gray-400 rounded-lg outline-teal-500"
           id="email"
           required
         />
@@ -102,11 +103,12 @@ export const SignInForm = () => {
           name="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full p-3 border border-gray-400 rounded-lg"
+          className="w-full p-3 border border-gray-400 rounded-lg outline-teal-500"
           id="password"
           required
         />
       </div>
+      <p className="text-red-400">{error && error}</p>
       <button
         type="submit"
         className="bg-teal-500 transition duration-500 hover:bg-teal-600 text-white font-medium w-full p-3 rounded-lg"
